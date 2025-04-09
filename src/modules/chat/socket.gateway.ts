@@ -18,7 +18,11 @@ import { InforService } from '@modules/infor/infor.service';
 import { Queue } from 'bullmq';
 import { InjectQueue } from '@nestjs/bull';
 
-@WebSocketGateway(3008, { transports: ['websocket'] })
+@WebSocketGateway({ transports: ['websocket'], cors: {
+  origin: '*',
+  credentials: true,
+
+})
 export class SocketGateway implements OnGatewayConnection, OnGatewayDisconnect {
   private clients: { [key: string]: Socket } = {};
   @WebSocketServer()
