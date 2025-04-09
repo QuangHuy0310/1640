@@ -22,7 +22,7 @@ RUN pnpm run build
 
 # Mở các cổng cần thiết
 EXPOSE 3002
-EXPOSE 3008
+
 EXPOSE 6379
 
 # Start the server using the production build
